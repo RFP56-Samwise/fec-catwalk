@@ -382,7 +382,10 @@ const productStyleData = {
     ]
 }
 
+const relatedProductId = [2, 3, 8, 7]
+
 module.exports = {
   productStyleData: productStyleData,
-  singleProductData: singleProductData
+  singleProductData: singleProductData,
+  relatedProductId: relatedProductId
 }
