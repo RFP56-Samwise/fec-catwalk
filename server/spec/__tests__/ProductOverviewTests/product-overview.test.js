@@ -33,4 +33,11 @@ describe('Related Product IDs', () => {
         .expectStatus(200)
         .expectJson(relatedProductId)
     })
+
+    test('should remove 0 from related product array', async() => {
+        await pactum.spec()
+            .get(`${url}/products/120/related`)
+            .expectStatus(200)
+            .expectJson();
+    })
 })
