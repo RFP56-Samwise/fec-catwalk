@@ -12,11 +12,11 @@ const YourOutfitItem = (props) => {
   useEffect(() => {
     fetchProductData();
     fetchStyleData();
-    fetchReviewData();
+    // fetchReviewData();
     return () => {
       setProductData(null);
       setStyleData(null);
-      setReviewData(null);
+      // setReviewData(null);
     }
   }, [])
   const fetchProductData = () => {
@@ -37,15 +37,15 @@ const YourOutfitItem = (props) => {
       console.log(error);
     })
   }
-  const fetchReviewData = () => {
-    axios.get(`/reviews/${props.outfit.id}`)
-    .then(res => {
-      setReviewData(res.data.results);
-    })
-    .catch(error => {
-      console.log(error);
-    })
-  }
+  // const fetchReviewData = () => {
+  //   axios.get(`/reviews/${props.outfit.id}`)
+  //   .then(res => {
+  //     setReviewData(res.data.results);
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //   })
+  // }
   const onClickCard = () => {
     props.fetchNewProduct(productData.id);
   }
@@ -66,7 +66,7 @@ const YourOutfitItem = (props) => {
           <h3>CATEGORY: {productData.category.toUpperCase()}</h3>
           <h2 className='product-name'>{styleData.name}</h2>
           {styleData.sale_price ? <h3><span style={{color: 'red', 'fontWeight': 'bold'}}>${styleData.sale_price}</span> <span style={{'textDecorationLine': 'line-through'}}>${styleData.original_price}</span></h3> : <h3>${styleData.original_price}</h3>}
-          <StarRating rating={reviewData.reduce((total, obj) => obj.rating + total, 0) / reviewData.length}/>
+          {/* <StarRating rating={reviewData.reduce((total, obj) => obj.rating + total, 0) / reviewData.length}/> */}
         </div>
       </Track>
     );
